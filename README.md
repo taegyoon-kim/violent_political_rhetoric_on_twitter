@@ -13,7 +13,7 @@ The key findings include
 
 * Users who write violent Tweets are on the fringe of the Twitter network
 * Those users are ideologically more extreme and liberal
-* Spread of violent Tweets exhibit strong ideological homophily
+* Spread of violent Tweets exhibits strong ideological homophily
 * Violent Tweets spread through multiple chains on following ties (at least up to three ties)
 
 
