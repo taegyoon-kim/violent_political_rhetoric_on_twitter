@@ -12,3 +12,6 @@ How prevalent is violent political rhetoric on social media? How do posts contai
 * Users who write violent Tweets are on the fringe of the Twitter network and those users are ideologically more extreme and liberal than non-violent users.
 * Spread of violent Tweets exhibits strong ideological homophily but there is also substantial amount of cross-ideological exposure.
 
+## Paper
+
+A working paper for the project can be found [here](https://github.com/taegyoon-kim/violent_political_rheotric_on_twitter/blob/master/violent_political_rhetoric_draft_18Feb2020.pdf). Please do not cite. If you have any questions, please email me at taegyoon@psu.edu
