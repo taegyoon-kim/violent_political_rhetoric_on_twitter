@@ -8,4 +8,4 @@ Violent hostility between ordinary partisans is undermining American democracy. 
 
 ## Paper
 
-A working paper for the project can be found [here](https://github.com/taegyoon-kim/violent_political_rheotric_on_twitter/blob/master/violent_political_rhetoric_draft_18Feb2020.pdf). Please do not cite. If you have any questions, please email me at taegyoon@psu.edu
+A working paper for the project can be found [here](https://github.com/taegyoon-kim/violent_political_rheotric_on_twitter/blob/master/violent_political_rhetoric_on_twitter_PSRM_submission.pdf). **Please do not cite**. If you have any questions, please email me at taegyoon@psu.edu
