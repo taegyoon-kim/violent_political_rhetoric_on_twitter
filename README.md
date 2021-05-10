@@ -1,4 +1,4 @@
-# Violent Political Rheotric on Twitter
+# Violent Political Rhetoric on Twitter
 
 
 ## About
