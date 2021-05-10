@@ -3,8 +3,11 @@
 
 ## About
 
-Violent hostility between ordinary partisans is undermining American democracy. Social media, once touted as democratizing technology, is blamed for political rhetoric threatening violence against political opponents and implicated in extremist online political violence. Focusing on Twitter, I propose an automated method to detect such rhetoric and investigate its characteristics. Using a data set spanning a 16-week period surrounding the 2020 Presidential Election, I demonstrate a) violent tweets peak in the days preceding the Capitol Riot, testifying their close relevance to contentious online politics, b) violent tweets disproportionately target women and Republican politicians, c) violent tweets are rare but spread widely, reaching an audience without a direct tie to violent users, d) violent users are ideologically extreme and on the fringe of the communication network, e) violent tweets are shared primarily among like-minded users but exhibit cross-ideological spread as well.
+In this paper, I propose a novel method to detect threats of political violence on social media, and analyze patterns associated with these threats, focused on Twitter. This paper is among the first to make sense of violent partisan hostility expressed online, a crucial issue in contemporary American politics that calls for immediate scholarly attention.
 
+Using the method, I build a data set of violent political tweets targeted at the members of the U.S. congress, governors, and the four candidates for the 2020 U.S. Presidential Election. The data set covers a 16-week period surrounding the election and I use it to investigate several substantive dimensions of the expression of threats of political violence on Twitter. 
+
+Violent tweets on Twitter peak in the days preceding the Capitol Riot, revealing their close relationship with contentious offline politics. Violent tweets are disproportionately targeted at women and Republican politicians. Violent users are located on the fringe of the political communication network and ideologically extreme. While the number of violent tweets is small, they often transcend direct inter-personal connections on the communication network, generating incidental exposure to such extreme content.
 
 ## Paper
 
