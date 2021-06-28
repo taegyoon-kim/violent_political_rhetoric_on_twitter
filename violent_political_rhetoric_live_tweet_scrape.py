@@ -1,19 +1,24 @@
-# Preparation
+###### author details: Taegyoon Kim, taegyoon@psu.edu
+###### purpose: This script is used to filter-stream live tweets and save a txt file of json objects every N minutes
+###### last edit: 1 Feb 2021
+
+
+##### packages
 
 import os, time
 from tweepy import OAuthHandler, Stream, StreamListener, API
 from datetime import datetime
-os.chdir('')
+os.chdir('') # directory to save json txt files in
 
 
-# Authentification
+##### authentification
 
 auth = OAuthHandler('', '')
 auth.set_access_token('', '')
 api = API(auth, wait_on_rate_limit = True, wait_on_rate_limit_notify = True)
 
 
-# Stream
+##### stream
 
 while True:
 

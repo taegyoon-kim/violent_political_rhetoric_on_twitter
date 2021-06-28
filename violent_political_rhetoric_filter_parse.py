@@ -1,4 +1,9 @@
-##### import libraries
+###### author details: Taegyoon Kim, taegyoon@psu.edu
+###### purpose: This script is used to filter tweets based on violent tweets and generate dataframes
+###### last edit: 1 Feb 2021
+
+
+##### packages
 
 import json
 import glob
@@ -7,13 +12,11 @@ import pandas as pd
 import numpy as np
 
 
-
-
 ##### define sample/filter/parse/count functions
 
 def date_sample(date):
 
-    directory = '/Volumes/Seagate 2TB/tweet_stream'
+    directory = '' # directory for tweet json files
     files = glob.glob(str(directory) + '/*.txt')
     
     files_date = []
@@ -34,9 +37,10 @@ def date_sample(date):
     return(files)
 
 def filter_parse(files):
-
+    
+    '''get the violent keywords'''
     keyword_start = r'\bkill|\bshoot|\bhang|\bdie|\bexterminate|\bexecute|\bexecuted|\bstab|\bkilling|\bcastration|\bkick|\bhanged|\bcastrate|\bbullet|\bburn|\bfire this|\bstarve|\bpunch|\bchoke|\bslap|\bsuicide|\bthroat|\bneutered|\bshot|\bdeath to|\bshooting|\bkilled|\bdeath|\bfire the|\bbang on|\bshoots|\bguillotine|\bbomb|\bspank|\bkills|\bspanking|\bexterminated|\bbe hung|\btorture|\bcrush|\bfire|\bdeserves|\bkicked|\bslaughter|\bburned|\bbe dead|\bpunched|\blight em|\bkill it|\bdestroy|\bdrown|\bbe exterminated|\bexecution|\bdestroy them|\brun over|\bstake|\bsmash|\bdies|\beuthanized|\bfiring|\bexecute him|\bstabbing|\bstop breathing|\bcastrated|\bbombing|\bhead off|\bexplode|\beradicate|\binvade|\bbeheading|\bfired the|\bcull|\bhung|\bbe neutered|\bkilling it|\bkicking|\bgo kill|\bbeating|\bfemales|\btortured|\bburn them|\bremove|\bdead|\bher with|\bfester|\bshould die|\binvade canada|\bbeat|\bbe shot|\bgo jump|\bshotgun|\bheads|\bbe blood|\bbe castrated|\beliminate these|\bneck|\beliminate|\btear it|\bhead|\bbe euthanized|\bkill all|\bbe destroyed|\bnail that|\bexecuting|\bbe killed|\bthe missiles|\bkill em|\bstart killing|\bbeat up|\blynching|\bbash|\bagonizing|\belectric chair|\bjust fire|\bdestroyed|\bhammered|\bhang the|\bcrucify|\bpunk|\bfire that|\bsome countries|\bhit|\bbe eliminated|\bthem then|\bburn the|\bthrottled|\bburn it|\bpunching|\bover with|\bhanging|\bto murder|\bfry|\bhuman life|\blynched|\bdestroy females|\bpoison|\bbe executed|\bpiffle|\bbastards|\bhanged for|\bstrike|\bcull the|\bnuke|\btraitors|\bneighbours|\band be|\btaken out|\bbeast|\bbe burned|\bgas chamber|\bstarving the|\bget shot|\bon killing|\bbe incinerated|\bcut|\blet kill|\bshotgun would|\bhouse down|\bincinerated|\bbutts out|\bwe kill|\bthe trigger|\bbury|\bkill yourself|\bget hammered|\btear|\bslay|\bthe face|\bkill them|\bbite|\bkilling people|\bfire those|\byou all|\bare dead|\bbe removed|\bdon\'t like|\bwhat was|\bburning|\bnazis|\bit over|\bas long|\bbeen shot|\bmurdering|\babout killing|\bthe lynching|\balive|\bgun up|\bhammer|\bor in|\bcutting|\bthis kind|\bjust run|\braped|\bcatch them|\bslapping|\bbullets|\bem|\bgetting shot|\beliminated|\bhead shake'
-    # keyword_both = r'\bkill\b|\bshoot\b|\bhang\b|\bdie\b|\bexterminate\b|\bexecute\b|\bexecuted\b|\bstab\b|\bkilling\b|\bcastration\b|\bkick\b|\bhanged\b|\bcastrate\b|\bbullet\b|\bburn\b|\bfire this\b|\bstarve\b|\bpunch\b|\bchoke\b|\bslap\b|\bsuicide\b|\bthroat\b|\bneutered\b|\bshot\b|\bdeath to\b|\bshooting\b|\bkilled\b|\bdeath\b|\bfire the\b|\bbang on\b|\bshoots\b|\bguillotine\b|\bbomb\b|\bspank\b|\bkills\b|\bspanking\b|\bexterminated\b|\bbe hung\b|\btorture\b|\bcrush\b|\bfire\b|\bdeserves\b|\bkicked\b|\bslaughter\b|\bburned\b|\bbe dead\b|\bpunched\b|\blight em\b|\bkill it\b|\bdestroy\b|\bdrown\b|\bbe exterminated\b|\bexecution\b|\bdestroy them\b|\brun over\b|\bstake\b|\bsmash\b|\bdies\b|\beuthanized\b|\bfiring\b|\bexecute him\b|\bstabbing\b|\bstop breathing\b|\bcastrated\b|\bbombing\b|\bhead off\b|\bexplode\b|\beradicate\b|\binvade\b|\bbeheading\b|\bfired the\b|\bcull\b|\bhung\b|\bbe neutered\b|\bkilling it\b|\bkicking\b|\bgo kill\b|\bbeating\b|\bfemales\b|\btortured\b|\bburn them\b|\bremove\b|\bdead\b|\bher with\b|\bfester\b|\bshould die\b|\binvade canada\b|\bbeat\b|\bbe shot\b|\bgo jump\b|\bshotgun\b|\bheads\b|\bbe blood\b|\bbe castrated\b|\beliminate these\b|\bneck\b|\beliminate\b|\btear it\b|\bhead\b|\bbe euthanized\b|\bkill all\b|\bbe destroyed\b|\bnail that\b|\bexecuting\b|\bbe killed\b|\bthe missiles\b|\bkill em\b|\bstart killing\b|\bbeat up\b|\blynching\b|\bbash\b|\bagonizing\b|\belectric chair\b|\bjust fire\b|\bdestroyed\b|\bhammered\b|\bhang the\b|\bcrucify\b|\bpunk\b|\bfire that\b|\bsome countries\b|\bhit\b|\bbe eliminated\b|\bthem then\b|\bburn the\b|\bthrottled\b|\bburn it\b|\bpunching\b|\bover with\b|\bhanging\b|\bto murder\b|\bfry\b|\bhuman life\b|\blynched\b|\bdestroy females\b|\bpoison\b|\bbe executed\b|\bpiffle\b|\bbastards\b|\bhanged for\b|\bstrike\b|\bcull the\b|\bnuke\b|\btraitors\b|\bneighbours\b|\band be\b|\btaken out\b|\bbeast\b|\bbe burned\b|\bgas chamber\b|\bstarving the\b|\bget shot\b|\bon killing\b|\bbe incinerated\b|\bcut\b|\blet kill\b|\bshotgun would\b|\bhouse down\b|\bincinerated\b|\bbutts out\b|\bwe kill\b|\bthe trigger\b|\bbury\b|\bkill yourself\b|\bget hammered\b|\btear\b|\bslay\b|\bthe face\b|\bkill them\b|\bbite\b|\bkilling people\b|\bfire those\b|\byou all\b|\bare dead\b|\bbe removed\b|\bdon\'t like\b|\bwhat was\b|\bburning\b|\bnazis\b|\bit over\b|\bas long\b|\bbeen shot\b|\bmurdering\b|\babout killing\b|\bthe lynching\b|\balive\b|\bgun up\b|\bhammer\b|\bor in\b|\bcutting\b|\bthis kind\b|\bjust run\b|\braped\b|\bcatch them\b|\bslapping\b|\bbullets\b|\bem\b|\bgetting shot\b|\beliminated\b|\bhead shake\b'
+    #keyword_both = r'\bkill\b|\bshoot\b|\bhang\b|\bdie\b|\bexterminate\b|\bexecute\b|\bexecuted\b|\bstab\b|\bkilling\b|\bcastration\b|\bkick\b|\bhanged\b|\bcastrate\b|\bbullet\b|\bburn\b|\bfire this\b|\bstarve\b|\bpunch\b|\bchoke\b|\bslap\b|\bsuicide\b|\bthroat\b|\bneutered\b|\bshot\b|\bdeath to\b|\bshooting\b|\bkilled\b|\bdeath\b|\bfire the\b|\bbang on\b|\bshoots\b|\bguillotine\b|\bbomb\b|\bspank\b|\bkills\b|\bspanking\b|\bexterminated\b|\bbe hung\b|\btorture\b|\bcrush\b|\bfire\b|\bdeserves\b|\bkicked\b|\bslaughter\b|\bburned\b|\bbe dead\b|\bpunched\b|\blight em\b|\bkill it\b|\bdestroy\b|\bdrown\b|\bbe exterminated\b|\bexecution\b|\bdestroy them\b|\brun over\b|\bstake\b|\bsmash\b|\bdies\b|\beuthanized\b|\bfiring\b|\bexecute him\b|\bstabbing\b|\bstop breathing\b|\bcastrated\b|\bbombing\b|\bhead off\b|\bexplode\b|\beradicate\b|\binvade\b|\bbeheading\b|\bfired the\b|\bcull\b|\bhung\b|\bbe neutered\b|\bkilling it\b|\bkicking\b|\bgo kill\b|\bbeating\b|\bfemales\b|\btortured\b|\bburn them\b|\bremove\b|\bdead\b|\bher with\b|\bfester\b|\bshould die\b|\binvade canada\b|\bbeat\b|\bbe shot\b|\bgo jump\b|\bshotgun\b|\bheads\b|\bbe blood\b|\bbe castrated\b|\beliminate these\b|\bneck\b|\beliminate\b|\btear it\b|\bhead\b|\bbe euthanized\b|\bkill all\b|\bbe destroyed\b|\bnail that\b|\bexecuting\b|\bbe killed\b|\bthe missiles\b|\bkill em\b|\bstart killing\b|\bbeat up\b|\blynching\b|\bbash\b|\bagonizing\b|\belectric chair\b|\bjust fire\b|\bdestroyed\b|\bhammered\b|\bhang the\b|\bcrucify\b|\bpunk\b|\bfire that\b|\bsome countries\b|\bhit\b|\bbe eliminated\b|\bthem then\b|\bburn the\b|\bthrottled\b|\bburn it\b|\bpunching\b|\bover with\b|\bhanging\b|\bto murder\b|\bfry\b|\bhuman life\b|\blynched\b|\bdestroy females\b|\bpoison\b|\bbe executed\b|\bpiffle\b|\bbastards\b|\bhanged for\b|\bstrike\b|\bcull the\b|\bnuke\b|\btraitors\b|\bneighbours\b|\band be\b|\btaken out\b|\bbeast\b|\bbe burned\b|\bgas chamber\b|\bstarving the\b|\bget shot\b|\bon killing\b|\bbe incinerated\b|\bcut\b|\blet kill\b|\bshotgun would\b|\bhouse down\b|\bincinerated\b|\bbutts out\b|\bwe kill\b|\bthe trigger\b|\bbury\b|\bkill yourself\b|\bget hammered\b|\btear\b|\bslay\b|\bthe face\b|\bkill them\b|\bbite\b|\bkilling people\b|\bfire those\b|\byou all\b|\bare dead\b|\bbe removed\b|\bdon\'t like\b|\bwhat was\b|\bburning\b|\bnazis\b|\bit over\b|\bas long\b|\bbeen shot\b|\bmurdering\b|\babout killing\b|\bthe lynching\b|\balive\b|\bgun up\b|\bhammer\b|\bor in\b|\bcutting\b|\bthis kind\b|\bjust run\b|\braped\b|\bcatch them\b|\bslapping\b|\bbullets\b|\bem\b|\bgetting shot\b|\beliminated\b|\bhead shake\b'
     
     file_count = 0
     tweet_count = 0
@@ -144,7 +148,8 @@ def filter_parse(files):
                 'quote_status_retweet_count':[],
                 'quote_status_quote_count':[],
                 'quote_status_reply_count':[]}
-        # fill in the dictionary by extracting relevant info
+        
+        '''fill in the dictionary by extracting relevant info'''
         for tweet in tweets_data_violent:
             try:
                 data['user_id'].append(tweet['user']["id_str"])
@@ -403,14 +408,14 @@ def filter_parse(files):
 
 ##### execute
 
-dates = [20201216]
-
+dates = [] # example: ['20200101', '20200102']
 
 for i in dates:
     files = date_sample(i)
     output = filter_parse(files)
     output.reset_index(drop=True)
-    output.to_pickle('/Users/taegyoon/Google Drive/diss_detection/tweet_extracted/tweet_stream_' + str(i) + '.pickle')
+    path_violent = ''
+    output.to_pickle(path_violent + 'tweet_stream_' + str(i) + '.pickle')
 
     
 
