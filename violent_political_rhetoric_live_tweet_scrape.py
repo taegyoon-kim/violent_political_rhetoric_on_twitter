@@ -26,7 +26,7 @@ while True:
 
     class Listener(StreamListener):
 
-        def __init__(self, time_limit= 3600):
+        def __init__(self, time_limit= 3600): # inset the interval at which txt files are generated/saved (e.g., 'time_limit= 3600' is 3,600 seconds = 1 hour )
             self.start_time = time.time()
             self.limit = time_limit
             self.saveFile = open(txt, 'a')
