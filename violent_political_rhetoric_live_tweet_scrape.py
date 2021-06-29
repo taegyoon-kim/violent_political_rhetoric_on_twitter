@@ -22,7 +22,7 @@ api = API(auth, wait_on_rate_limit = True, wait_on_rate_limit_notify = True)
 
 while True:
 
-    txt = 'stream' + str(datetime.now().strftime('%Y_%m%d_%H%M_%S')) + '.txt'
+    txt = 'stream_' + str(datetime.now().strftime('%Y_%m%d_%H%M_%S')) + '.txt'
 
     class Listener(StreamListener):
 
@@ -93,7 +93,7 @@ while True:
     def Streaming(tags = None, follow = None, lang = None):
         try:
             print('Start streaming.')
-            streamer.filter(track=['keyword'], encoding = 'utf8', languages = ['en'])
+            streamer.filter(track=[''], encoding = '', languages = ['']) # set as you want 
         except KeyboardInterrupt:
             print('Manually stopped.')
             streamer.disconnect()

@@ -21,7 +21,7 @@ def date_sample(date):
     
     files_date = []
     for i in files:
-        files_date.append(int(i[-21:-12])) 
+        files_date.append(int(i[-21:-12])) # adjust so that it takes the year-month-day identifier in the file name (e.g, 20200101)
         
     sample_frame = pd.DataFrame()
     sample_frame['files'] = files

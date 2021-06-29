@@ -1,6 +1,6 @@
 ###### author details: Taegyoon Kim, taegyoon@psu.edu
 ###### purpose: This script is used to extract top-weight n-grams on predicted probabilities in text classification
-###### last edit: 27 Jun 2021
+###### last edit: 27 May 2021
 
 
 ##### packages
