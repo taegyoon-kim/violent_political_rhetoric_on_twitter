@@ -11,4 +11,4 @@ Violent tweets on Twitter peak in the days preceding the Capitol Riot, revealing
 
 ## Paper
 
-The paper is under review. The current version of the paper can be found [here](https://github.com/taegyoon-kim/violent_political_rheotric_on_twitter/blob/master/Violent%20Political%20Rhetoric%20on%20Twitter.pdf). If you have any questions, please email me at taegyoon@psu.edu
+The paper is publisehd at Political Science Research and Methods. The paper, code, and data can be found [here](https://www.cambridge.org/core/journals/political-science-research-and-methods/article/abs/violent-political-rhetoric-on-twitter/8BCBD1F909A861589D93F7124AFE1A7E#article). If you have any questions, please email me at taegyoon.kim@northwestern.edu.
